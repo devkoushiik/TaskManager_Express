@@ -10,12 +10,10 @@
     {
       "src": "/(.*)",
       "dest": "/index.js"
-    }
-  ],
-  "rewrites": [
+    },
     {
-      "source": "/api/v1/tasks",
-      "destination": "/api/v1/tasks"
+      "src": "/(.*)",
+      "dest": "/public/$1"
     }
   ]
 }
