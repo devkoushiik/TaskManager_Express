@@ -9,10 +9,7 @@ app.use(express.static('./public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-app.get('/hello',(req,res) => {
-    res.send('Hello')
-})
-
+// router middleware
 app.use('/api/v1/tasks',tasks)
 
 const port = 3000;
