@@ -16,12 +16,16 @@ app.use("/api/v1/tasks", tasks); // router
 app.use(notFound); // route exceptions
 app.use(errorHandlerMiddleware); // erorr handler next()
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
-    app.listen(port, console.log("Server is on 3000"));
+    if (process.env.PORT) {
+      app.listen(port, console.log(`Server is on ${process.env.PORT}`));
+    } else {
+      app.listen(port, console.log(`Server is on ${port}`));
+    }
   } catch (error) {
     console.log(error);
   }
