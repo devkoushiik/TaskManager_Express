@@ -5,11 +5,12 @@ const connectDB = require("./DB/connection");
 const tasks = require("./routes/tasks");
 const notFound = require("./middlewares/not-found");
 const errorHandlerMiddleware = require("./middlewares/errorHandlerMiddleware");
-
+const cors = require("cors");
 // middlewares
 app.use(express.static("./public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 // middleware
 app.use("/api/v1/tasks", tasks); // router
